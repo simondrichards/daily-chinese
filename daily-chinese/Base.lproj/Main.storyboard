@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="664.79999999999995" y="116.49175412293854"/>
         </scene>
-        <!--View Controller-->
+        <!--Options View Controller-->
         <scene sceneID="KmV-Ri-rFh">
             <objects>
-                <viewController id="rXO-ro-gYn" sceneMemberID="viewController">
+                <viewController id="rXO-ro-gYn" customClass="OptionsViewController" customModule="daily_chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TZY-r6-ocw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,6 +167,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wdz-Ys-Zkf"/>
                     </view>
+                    <connections>
+                        <outlet property="selectHSKLevels" destination="dnf-MQ-ZiU" id="Ck0-dT-vZa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64t-Xf-6qc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
