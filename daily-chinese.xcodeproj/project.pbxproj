@@ -17,6 +17,7 @@
 		F412759A215999DC00167310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4127598215999DC00167310 /* LaunchScreen.storyboard */; };
 		F41275A5215999DD00167310 /* daily_chineseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41275A4215999DD00167310 /* daily_chineseTests.swift */; };
 		F41275B0215999DD00167310 /* daily_chineseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41275AF215999DD00167310 /* daily_chineseUITests.swift */; };
+		F46D83D1215AE666007825A0 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D83D0215AE666007825A0 /* LessonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		F41275AB215999DD00167310 /* daily-chineseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "daily-chineseUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41275AF215999DD00167310 /* daily_chineseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daily_chineseUITests.swift; sourceTree = "<group>"; };
 		F41275B1215999DD00167310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46D83D0215AE666007825A0 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				F4127596215999DC00167310 /* Assets.xcassets */,
 				F4127598215999DC00167310 /* LaunchScreen.storyboard */,
 				F412759B215999DC00167310 /* Info.plist */,
+				F46D83D0215AE666007825A0 /* LessonViewController.swift */,
 			);
 			path = "daily-chinese";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4127592215999DC00167310 /* ViewController.swift in Sources */,
+				F46D83D1215AE666007825A0 /* LessonViewController.swift in Sources */,
 				F4127590215999DC00167310 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
