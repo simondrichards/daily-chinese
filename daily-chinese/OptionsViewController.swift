@@ -7,24 +7,13 @@
 //
 
 import UIKit
-import ATHMultiSelectionSegmentedControl
+import MultiSelectSegmentedControl
 
-
-class OptionsViewController: UIViewController , MultiSelectionSegmentedControlDelegate {
+class OptionsViewController: UIViewController {
     
     // MARK: - IBOutlets
-    /// The multi selection segmented control
-    @IBOutlet weak var multiSegmentedControl: MultiSelectionSegmentedControl!
-    /// The label indicating the selected indices
-    @IBOutlet weak var selectedIndicesLabel: UILabel!
-    /// Button for inserting segments
-    @IBOutlet weak var insertSegmentButton: UIButton!
-    /// Button for removing segments
-    @IBOutlet weak var removeSegmentButton: UIButton!
-    /// Button for remove all segments
-    @IBOutlet weak var removeAllSegments: UIButton!
 
-    @IBOutlet weak var selectHSKLevels: MultiSelectionSegmentedControl!
+    @IBOutlet weak var selectHSKLevels: MultiSelectSegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +31,7 @@ class OptionsViewController: UIViewController , MultiSelectionSegmentedControlDe
         // Pass the selected object to the new view controller.
     }
     */
-    func multiSelectionSegmentedControl(_ control: MultiSelectionSegmentedControl, selectedIndices indices: [Int]) {
-        
-        selectedIndicesLabel.text = "Selected Indices: ["
-        
-        for index in indices {
-            selectedIndicesLabel.text?.append("\(String(index)),")
-        }
-        
-        if indices.count != 0 {
-            selectedIndicesLabel.text = String(selectedIndicesLabel.text!.characters.dropLast())
-        }
-        
-        selectedIndicesLabel.text?.append("]")
-        
-    }
+    
+    // MARK: - IBActions
 
 }

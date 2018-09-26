@@ -6,7 +6,7 @@
 //  Copyright © 2018 Simon Richards. All rights reserved.
 //
 
-import UIKit
+import UIKit
 
 class ViewController: UIViewController {
     // MARK: Properties
@@ -15,8 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        multiSegmentedControl.insertSegmentsWithTitles(["Title 1"])
-//        multiSegmentedControl.delegate = self
     }
 }
 
