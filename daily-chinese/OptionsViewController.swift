@@ -2,6 +2,10 @@
 //  OptionsViewController.swift
 //  daily-chinese
 //
+//  This view controller is for the settings. Here the user provides their
+//  ChinesePod login to link the app to their ChinesePod account in order
+//  to access content.
+//
 //  Created by Simon Richards on 25/09/2018.
 //  Copyright © 2018 Simon Richards. All rights reserved.
 //
@@ -20,18 +24,4 @@ class OptionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    // MARK: - IBActions
-
 }

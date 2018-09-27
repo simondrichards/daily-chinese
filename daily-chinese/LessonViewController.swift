@@ -2,6 +2,11 @@
 //  LessonViewController.swift
 //  daily-chinese
 //
+//  This view presents a ChinesePod lesson to be studied.
+//  For now the prototype just displays a WKWebView frame showing a lesson on the
+//  ChinesePod site but thios should probably implement the lessons in a
+//  more native way for the final app.
+//
 //  Created by Simon Richards on 25/09/2018.
 //  Copyright © 2018 Simon Richards. All rights reserved.
 //

@@ -2,6 +2,10 @@
 //  ViewController.swift
 //  daily-chinese
 //
+// This is the view controller for the main entry view, showing the current
+// statistics, and upcoming lesson and exercise. From here the user accesses
+// the settings and launches the next lesson or exercise.
+//
 //  Created by Simon Richards on 24/09/2018.
 //  Copyright © 2018 Simon Richards. All rights reserved.
 //
@@ -14,9 +18,6 @@ var current_streak: Int = 17
 var personal_best: Int = 24
 var current_level: Int = 8
 var current_score: Int = 1024
-
-
-
 
 class ViewController: UIViewController {
     // MARK: Properties
@@ -32,8 +33,7 @@ class ViewController: UIViewController {
         currentStreak.text = String(current_streak)
         personalBest.text = String(personal_best)
         currentLevel.text = String(current_level)
-        currentScore.text = String(current_score)
-        
+        currentScore.text = String(current_score)        
         
     }
 }
