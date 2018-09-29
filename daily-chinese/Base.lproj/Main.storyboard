@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCL-s4-hFz">
-                                <rect key="frame" x="147" y="594" width="91" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="rXO-ro-gYn" kind="show" id="Zl6-7p-xVG"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7sY-3q-Eq0">
                                 <rect key="frame" x="29" y="97" width="317" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,7 +127,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6K8-2F-Uhc"/>
+                    <navigationItem key="navigationItem" id="6K8-2F-Uhc">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="NSx-gD-8TP">
+                            <connections>
+                                <segue destination="rXO-ro-gYn" kind="show" id="evd-25-3jN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentLevel" destination="MNS-7j-ahc" id="C78-Ci-3fL"/>
                         <outlet property="currentScore" destination="QAT-ft-Ndm" id="wWs-oq-NQt"/>
