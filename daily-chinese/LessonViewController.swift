@@ -20,6 +20,9 @@ class LessonViewController: UIViewController, WKUIDelegate {
 
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.preferences.javaScriptEnabled = true
+        webConfiguration.allowsInlineMediaPlayback = true
+        webConfiguration.allowsInlineMediaPlayback = true
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         view = webView
@@ -31,6 +34,7 @@ class LessonViewController: UIViewController, WKUIDelegate {
         let myURL = URL(string:"https://chinesepod.com/lessons/no-bargaining")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
+        webView.allowsBackForwardNavigationGestures = true
     }
     
 
