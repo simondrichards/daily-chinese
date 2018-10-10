@@ -21,6 +21,8 @@ class PlayViewController: UIViewController {
     let imageView1 = UIImageView()
     let imageView2 = UIImageView()
     var touchedImage = 0
+    var resultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    var currentScoreLabel = UILabel()
 
     let screenSize = UIScreen.main.bounds
     
@@ -70,7 +72,7 @@ class PlayViewController: UIViewController {
         self.view.addSubview(testView)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
-        label.center = CGPoint(x: screenSize.width/2, y: 0.2*screenSize.height)
+        label.center = CGPoint(x: screenSize.width/2, y: 0.3*screenSize.height)
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -81,14 +83,22 @@ class PlayViewController: UIViewController {
         imageView1.image = #imageLiteral(resourceName: "white-plane-sky.png")
         imageView1.frame = CGRect(x: 50, y: screenSize.height/2, width: 150, height: 100)
         imageView1.isUserInteractionEnabled = true
-     
         self.view.addSubview(imageView1)
-    
     
         imageView2.image = #imageLiteral(resourceName: "highspeedrail")
         imageView2.frame = CGRect(x: 220, y: screenSize.height/2, width: 150, height: 100)
+        imageView2.isUserInteractionEnabled = true
         self.view.addSubview(imageView2)
         
+        resultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        resultLabel.center = CGPoint(x: screenSize.width/2, y: 0.7*screenSize.height)
+        resultLabel.text = "Right or wrong?"
+        self.view.addSubview(resultLabel)
+        
+        currentScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        currentScoreLabel.center = CGPoint(x: screenSize.width/2, y: 0.2*screenSize.height)
+        currentScoreLabel.text = "Score: \(current_game_score)"
+        self.view.addSubview(currentScoreLabel)
         
    //     playAudio()
     }
@@ -97,10 +107,15 @@ class PlayViewController: UIViewController {
         if touch.view == imageView1 {
             print("image 1 touched")
             touchedImage = 1
+            resultLabel.text = "Correct"
+            current_game_score += 1
+            print ("current_game_score = \(current_game_score)")
+            currentScoreLabel.text = "Score: \(current_game_score)"
         }
         if touch.view == imageView2 {
             print("image 2 touched")
             touchedImage = 2
+            resultLabel.text = "Incorrect"
         }
         
     }
