@@ -316,10 +316,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fiv-Cu-hql">
+                                <rect key="frame" x="313" y="102" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clearView:" destination="7Pg-8Y-vQu" eventType="touchUpInside" id="Ecj-H5-w9e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="edd-aa-AIq"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentGame" destination="e7i-Gy-cCg" id="2MV-1E-E0R"/>
                         <outlet property="currentGameScore" destination="xEf-Jh-b3F" id="2La-GN-yio"/>
