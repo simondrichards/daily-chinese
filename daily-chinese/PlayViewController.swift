@@ -32,8 +32,7 @@ class PlayViewController: UIViewController {
     var englishSentence = ["this","is","my","red","cup"]
     let chineseSentence = ["这","红色","的","杯子","是","我的"]
     
-    // Add some "wrong" words to the English
-  //  englishSentence.append("that")
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,6 +139,14 @@ class PlayViewController: UIViewController {
     }
     
     func translateGame() {
+        
+        // Add some "wrong" words to the English
+        let correctCount = englishSentence.count
+        englishSentence += ["that", "those", "green", "his"]
+        
+        var englishWords = englishSentence
+        englishWords.shuffle()
+        
         print("translateGame")
         let testView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         testView.backgroundColor = .white
@@ -156,14 +163,20 @@ class PlayViewController: UIViewController {
         label.text = "Translate the sentence"
         self.view.addSubview(label)
         
-        let wordCount = englishSentence.count
+        let wordCount = englishWords.count
         for i in 0..<wordCount {
+            var xpos = CGFloat((i+1)*40)
+            var ypos = 0.8*screenSize.height
+            if i>6{
+                xpos -= 6*40
+                ypos += 40
+            }
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
-            label.center = CGPoint(x: CGFloat((i+1)*40), y: 0.8*screenSize.height)
+            label.center = CGPoint(x: xpos, y: ypos)
             label.textAlignment = .center
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
-            label.text = englishSentence[i]
+            label.text = englishWords[i]
             self.view.addSubview(label)
         }
         
