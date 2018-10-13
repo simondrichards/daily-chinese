@@ -8,6 +8,7 @@ Please let me know if you experience any issues building the project.
 Development environment:
 macOS High Sierra 10.13.6;
 Xcode 10.0;
+swift 4.2;
 Simulator iPhone XR - 12.0 (Portrait).
 
 Dependencies: 
@@ -20,7 +21,7 @@ the project folder after cloning the git repository. This will create a new work
 Important: because of the limited time I have had to work on these apps, there has not been
 time to implement handling for different screen sizes and orientations. It is therefore strongly
 recommended that this app is tested with the iPhone XR Simulator in Portrait orientation, as
-this was the Simulator used for develepment and testing.
+this was the Simulator used for development and testing.
 
 The prototype apps are not complete. I had very little time to develop these prototypes, 
 I had two different prototypes to develop, and I was learning how to develop apps from scratch 
