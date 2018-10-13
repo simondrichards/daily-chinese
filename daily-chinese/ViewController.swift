@@ -21,6 +21,7 @@ class Global {
     var current_score: Int = 1024
     var current_game: Int = 0
     var current_lesson: String = "No Bargaining"
+    var firstTime = true
     
     // An initial set of game names - these can be added to later
     var games = ["Listening and comprehension", "Grammar", "Translate (Chinese-English)"]
@@ -47,6 +48,12 @@ class ViewController: UIViewController {
     // be updated after the first time the view is loaded
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if !global.firstTime {
+            global.current_game = global.current_game + 1
+            if global.current_game == global.games.count {global.current_game=0}
+        }
+        global.firstTime = false
         
         currentStreak.text = String(global.current_streak)
         personalBest.text = String(global.personal_best)

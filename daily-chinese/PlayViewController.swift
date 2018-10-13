@@ -23,16 +23,19 @@ class PlayViewController: UIViewController {
     var touchedImage = 0
     var resultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     var currentScoreLabel = UILabel()
+    var englishWords = [String]()
+    var xposWord = CGFloat(0)
+    var iword = 0
+    var correctCount = 0
+    var correctTranslation = true
 
     let screenSize = UIScreen.main.bounds
     
     var current_game_score: Int = 8
     
     // Dummy data
-    var englishSentence = ["this","is","my","red","cup"]
+    var englishSentence = ["this","red","cup","is","mine"]
     let chineseSentence = ["这","红色","的","杯子","是","我的"]
-    
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,19 +54,14 @@ class PlayViewController: UIViewController {
         default:
             print("default")
         }
-        
-        global.current_game = global.current_game + 1
-        if global.current_game == global.games.count {global.current_game=0}
-        
+
         // Update total score
         global.current_score += current_game_score
-        
+
     }
     
     func listeningGame() {
-        print("listeningGame")
         let testView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        print("w = \(testView.frame.size.width)")
         testView.backgroundColor = .white
         testView.alpha = 1.0
         testView.tag = 100
@@ -91,7 +89,7 @@ class PlayViewController: UIViewController {
         
         resultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         resultLabel.center = CGPoint(x: screenSize.width/2, y: 0.7*screenSize.height)
-        resultLabel.text = "Right or wrong?"
+        resultLabel.text = ""
         self.view.addSubview(resultLabel)
         
         currentScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
@@ -101,53 +99,38 @@ class PlayViewController: UIViewController {
         
    //     playAudio()
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch:UITouch = touches.first!
-        if touch.view == imageView1 {
-            print("image 1 touched")
-            touchedImage = 1
-            resultLabel.text = "Correct"
-            current_game_score += 1
-            print ("current_game_score = \(current_game_score)")
-            currentScoreLabel.text = "Score: \(current_game_score)"
-        }
-        if touch.view == imageView2 {
-            print("image 2 touched")
-            touchedImage = 2
-            resultLabel.text = "Incorrect"
-        }
-        
-    }
+
     
     func grammarGame() {
-        print("grammarGame")
         let testView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        print("w = \(testView.frame.size.width)")
         testView.backgroundColor = .white
         testView.alpha = 1.0
         testView.tag = 100
         testView.isUserInteractionEnabled = true
         self.view.addSubview(testView)
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 100))
         label.center = CGPoint(x: screenSize.width/2, y: 0.2*screenSize.height)
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.text = "Decide whether the sentence is correct"
+        label.numberOfLines = 3
+        label.text = "Decide whether the sentence is correct (Not yet implemented)"
         self.view.addSubview(label)
     }
     
     func translateGame() {
         
         // Add some "wrong" words to the English
-        let correctCount = englishSentence.count
-        englishSentence += ["that", "those", "green", "his"]
+        correctCount = englishSentence.count
+        englishSentence += ["that", "those", "green", "his", "hat", "which", "black"]
         
-        var englishWords = englishSentence
+        englishWords = englishSentence
         englishWords.shuffle()
         
-        print("translateGame")
+        xposWord = CGFloat(50)
+        iword = 0
+        correctTranslation = true
+        
         let testView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         testView.backgroundColor = .white
         testView.alpha = 1.0
@@ -156,7 +139,7 @@ class PlayViewController: UIViewController {
         self.view.addSubview(testView)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
-        label.center = CGPoint(x: screenSize.width/2, y: 0.2*screenSize.height)
+        label.center = CGPoint(x: screenSize.width/2, y: 0.3*screenSize.height)
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -165,38 +148,52 @@ class PlayViewController: UIViewController {
         
         let wordCount = englishWords.count
         for i in 0..<wordCount {
-            var xpos = CGFloat((i+1)*40)
+            var xpos = CGFloat((i+1)*60)
             var ypos = 0.8*screenSize.height
-            if i>6{
-                xpos -= 6*40
-                ypos += 40
+            if i>5{
+                xpos -= 6*60
+                ypos += 55
             }
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 45))
             label.center = CGPoint(x: xpos, y: ypos)
             label.textAlignment = .center
+            label.backgroundColor = .cyan
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
             label.text = englishWords[i]
+            label.isUserInteractionEnabled = true
+            label.tag = 1000+i
             self.view.addSubview(label)
         }
+        
+        resultLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        resultLabel.center = CGPoint(x: screenSize.width/2, y: 0.7*screenSize.height)
+        resultLabel.text = "Select the correct words"
+        self.view.addSubview(resultLabel)
         
         let sentence = chineseSentence.joined(separator: " ")
         let sentenceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenSize.width/2, height: 45))
         sentenceLabel.center = CGPoint(x: screenSize.width/2, y: 0.4*screenSize.height)
-        sentenceLabel.textAlignment = .center
+        sentenceLabel.textAlignment = .left
         sentenceLabel.lineBreakMode = .byWordWrapping
         sentenceLabel.numberOfLines = 0
         sentenceLabel.text = sentence
         self.view.addSubview(sentenceLabel)
         
+        currentScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        currentScoreLabel.center = CGPoint(x: screenSize.width/2, y: 0.2*screenSize.height)
+        currentScoreLabel.text = "Score: \(current_game_score)"
+        self.view.addSubview(currentScoreLabel)
+        
+    
+        
     }
     
     func removeSubview(){
-        print("Start remove subview")
         if let viewWithTag = self.view.viewWithTag(100) {
             viewWithTag.removeFromSuperview()
         }else{
-            print("No!")
+            return
         }
     }
     
@@ -209,7 +206,6 @@ class PlayViewController: UIViewController {
         {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()
-            print ("Did you hear the dialogue?")
         }
         catch
         { }
@@ -218,4 +214,62 @@ class PlayViewController: UIViewController {
     @IBAction func clearView(_ sender: UIButton) {
         removeSubview()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch:UITouch = touches.first!
+        let ypos = screenSize.height/2
+        
+        switch (global.current_game){
+        case 0:
+            if touch.view == imageView1 {
+                touchedImage = 1
+                resultLabel.text = "Correct"
+                current_game_score += 1
+                currentScoreLabel.text = "Score: \(current_game_score)"
+            }
+            if touch.view == imageView2 {
+                touchedImage = 2
+                resultLabel.text = "Incorrect"
+            }
+        case 2:
+            if correctTranslation && iword==correctCount {return}
+            if iword>correctCount-1 || !correctTranslation {
+                resultLabel.text = "Incorrect"
+                resultLabel.backgroundColor = .red
+                return
+            }
+            for i in 0..<englishSentence.count {
+                if touch.view!.tag == 1000+i {
+                    xposWord += CGFloat(50)
+            
+                    let answerWord = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 45))
+                    answerWord.center = CGPoint(x: xposWord, y: ypos)
+                    answerWord.text = englishWords[i]
+                    answerWord.backgroundColor = .orange
+                    if answerWord.text == englishSentence[iword] {
+                        answerWord.backgroundColor = .green
+                    }
+                    else {
+                        answerWord.backgroundColor = .red
+                        correctTranslation = false
+                        resultLabel.text = "Incorrect"
+                        resultLabel.backgroundColor = .red
+                        resultLabel.textAlignment = .center
+                    }
+                    self.view.addSubview(answerWord)
+                    if correctTranslation && iword == correctCount-1 {
+                        resultLabel.text = "Correct"
+                        resultLabel.backgroundColor = .green
+                        resultLabel.textAlignment = .center
+                        current_game_score += 1
+                        currentScoreLabel.text = "Score: \(current_game_score)"
+                    }
+                    iword += 1
+                }
+            }
+        default:
+            print("default")
+        }
+    }
+    
 }
