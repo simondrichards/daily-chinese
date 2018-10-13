@@ -17,6 +17,8 @@ The prototype apps are not complete. I had very little time to develop these pro
 I had two different prototypes to develop, and I was learning how to develop apps from scratch 
 as part of this process.
 
+Please let me know if you experience any issues building the project.
+
 They are intended to give some idea of what the final apps should do, but further work will be required 
 to turn these apps into professional products, including adding further functionality, improving the user 
 interface and graphical design. The current graphical design is very basic and should not be taken as an 
