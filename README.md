@@ -10,6 +10,13 @@ macOS High Sierra 10.13.6;
 Xcode 10.0;
 Simulator iPhone XR - 12.0 (Portrait).
 
+Dependencies: 
+This app uses MultiSelectSegmentedControl which is installed using CocoaPods. You will probably 
+need to install CocoalPods (cocoapods.org) if you don't already have it, and then run ‘pod install’ in
+the project folder after cloning the git repository. This will create a new workspace called
+'daily-chinese.xcworkspace' which should be used to build the project.
+
+
 Important: because of the limited time I have had to work on these apps, there has not been
 time to implement handling for different screen sizes and orientations. It is therefore strongly
 recommended that this app is tested with the iPhone XR Simulator in Portrait orientation, as
