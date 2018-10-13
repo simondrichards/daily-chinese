@@ -1,0 +1,6 @@
+framework module Pods_daily_chinese {
+  umbrella header "Pods-daily-chinese-umbrella.h"
+
+  export *
+  module * { export * }
+}
