@@ -91,4 +91,4 @@ English-Chinese translation should be included
 
 9) The app should support all screen sizes and orientations.
 
-
+© Simon Richards, 2018. All rights reserved.
