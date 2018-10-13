@@ -3,6 +3,8 @@ Development of Daily Chinese app prototype for ChinesePod
 
 This is a partially-developed prototype of an app for ChinesePod.
 
+Please let me know if you experience any issues building the project.
+
 Development environment:
 macOS High Sierra 10.13.6;
 Xcode 10.0;
@@ -17,7 +19,6 @@ The prototype apps are not complete. I had very little time to develop these pro
 I had two different prototypes to develop, and I was learning how to develop apps from scratch 
 as part of this process.
 
-Please let me know if you experience any issues building the project.
 
 They are intended to give some idea of what the final apps should do, but further work will be required 
 to turn these apps into professional products, including adding further functionality, improving the user 
